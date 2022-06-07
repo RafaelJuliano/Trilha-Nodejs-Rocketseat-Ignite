@@ -1,4 +1,4 @@
-import { CreateCategoryRepository } from '../../repositories/CreateCategoryRepository'
+import { CategoryRepository } from '../../repositories/CategoryRepository'
 
 interface IRequest {
   name: string,
@@ -7,13 +7,13 @@ interface IRequest {
 
 class CreateCategoryUseCase {
 
-  constructor(private createCategoryRepository: CreateCategoryRepository) { }
+  constructor(private categoryRepository: CategoryRepository) { }
 
   execute({ name, description }: IRequest): void {
-    if (this.createCategoryRepository.findByName(name))
+    if (this.categoryRepository.findByName(name))
       throw new Error("Category already exists")
 
-    this.createCategoryRepository.create({ name, description })
+    this.categoryRepository.create({ name, description })
   }
 }
 
