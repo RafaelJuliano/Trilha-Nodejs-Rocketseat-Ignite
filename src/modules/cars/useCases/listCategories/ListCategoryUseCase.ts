@@ -1,4 +1,4 @@
-import { CategoryRepository } from "../../repositories/CategoryRepository";
+import { CategoryRepository } from "../../repositories/implementations/CategoryRepository";
 
 export class ListCategoryUseCase {
     constructor(private categoryRepository: CategoryRepository) { }
