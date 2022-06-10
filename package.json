@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts",
     "start": "node dist/index.js",
-    "postinstall": "tsc",
+    "postinstall": "tsc src/server.ts --outDir dist",
     "watch-node": "nodemon dist/index.js",
     "watch-ts": "tsc -w",
     "deploy": "git add . && git commit -m Heroku && git push heroku master"
