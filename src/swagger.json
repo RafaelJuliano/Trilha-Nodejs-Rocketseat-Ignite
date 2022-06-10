@@ -74,6 +74,71 @@
                     }
                 }
             }
+        },
+        "/categories/import":{
+            "post":{
+                "tags": ["categories"],
+                "summary": "Import categories",
+                "description": "Import categories",
+                "requestBody":{
+                    "content":{
+                       "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/specifications": {
+            "post":{
+                "tags": ["specifications"],
+                "summary": "Create a new specification",
+                "description": "Create a new specification",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "The name of the specification"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "The description of the specification"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Specification 1",
+                                    "description": "This is the first specification"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "Created"
+                    },
+                    "400":{
+                        "description": "Specification already exists"
+                    }
+                }
+            }
         }
     }
 }
