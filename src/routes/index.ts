@@ -7,4 +7,5 @@ const routes = Router()
 routes.use("/categories", categoriesRoutes)
 routes.use("/specifications", specificationRoutes)
 
+
 export { routes }

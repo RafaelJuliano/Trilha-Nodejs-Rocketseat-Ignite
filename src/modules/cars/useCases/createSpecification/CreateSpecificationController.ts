@@ -6,7 +6,12 @@ export class CreateSpecificationController {
     handle(request, response) {
         const { name, description } = request.body
 
-        this.createSpecificationUseCase.execute({ name, description })
+        try {
+            console.log('creating specification')
+            this.createSpecificationUseCase.execute({ name, description })
+        } catch (error) {
+            return response.status(400).json({ error: error.message })
+        }
 
         return response.status(201).send()
     }
