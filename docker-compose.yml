@@ -16,7 +16,8 @@ services:
       - pgdata:/data/postgress
 
   app:
-    build: .
+    build:
+      context: .
     container_name: remtx
     ports:
       - "3333:3333"
