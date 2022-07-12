@@ -3,7 +3,7 @@ import { CategoryRepository } from "../../repositories/implementations/CategoryR
 export class ListCategoryUseCase {
     constructor(private categoryRepository: CategoryRepository) { }
 
-    execute() {
-        return this.categoryRepository.list()
+    async execute() {
+        return await this.categoryRepository.list()
     }
 }
