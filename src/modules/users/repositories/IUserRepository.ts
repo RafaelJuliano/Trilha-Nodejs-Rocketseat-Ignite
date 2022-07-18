@@ -1,3 +1,5 @@
+import { User } from "../entities/User"
+
 interface ICreateUserDTO {
     name: string
     password: string
@@ -7,6 +9,7 @@ interface ICreateUserDTO {
 
 interface IUserRepository {
     create(data: ICreateUserDTO): Promise<void>
+    findByEmail(email: string): Promise<User>
 }
 
 export { IUserRepository, ICreateUserDTO }
